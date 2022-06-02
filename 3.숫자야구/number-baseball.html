@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>숫자야구</title>
+</head>
+<body>
+<!--1. 여기서부터는 스크립트로 안하고 vue를 설치해서 하는데-->
+
+<!--2. 터미널을 이용해서 3.숫자야구 폴더로 이동해 npm init을 입력하고
+   number-baseball을 입력한 뒤 다 계속 엔터를 누르면 package.json이라는 파일이 하나 생긴다.
+   이걸 왜 하냐면 내가 쓰는 다른 사람의 소스코드를 정리해주는데
+   각각의 소스코드마다 버전이 있기 때문에 버전관리를 위해 사용하는 것이다.
+   대충 살펴보면 name은 내가 정한 내 프로젝트의 이름이고
+   version은 내 프로젝트의 버전, main은 제일 중요한 파일이라는 뜻이다.-->
+
+<!--3. 그 다음 npm install vue 또는 npm i vue를 입력하면 vue가 설치되고
+   package.json에도 vue의 버전이 추가된다.-->
+
+<!--4. 그 다음 npl i webpack webpack-cli -D 라고 입력해주는데,
+   webpack과 webpack-cli를 설치한다는 것이다. -D는 옵션인데, 나는 개발할 때만
+   webpack과 webpack-cli를 사용하겠다는 뜻이다.
+   그러면 또 package.json에 정보가 추가되는 것을 볼 수 있다.
+   원래는 dependencise에 같이 추가되어야 하는데 devDependencies가 새로생겨 추가되는 것을 볼 수있다.
+   이건 vue는 개발할 때나 배포할 때나 둘 다 사용하는데,
+   webpack이나 webpack-cli는 배포를 위한 보조도구이다. 개발완료한 것을 webpack처리해서 배포하는 것인데,
+   개발할 때만 필요하기 때문에 저기에 추가한 것이다.-->
+
+<!--5. webpack은 왜 쓸까 ? 실제 개발에 들어가면 script가 많아져서 관리하기가 힘들기 때문
+   일단 이렇게 간략하게 알아두자-->
+
+<!--6. 그 후 webpack.config.js를 만들어준다.
+   이거는 webpack의 설정을 적어주는 곳이다. springboot의 application.properties랑 비슷한듯
+   ********* webpack.config.js로 이동 *********-->
+
+
+
+
+
+   <div id="root"></div>
+   <script src="./dist/app.js"></script>
+
+<!-- 14. 이렇게 사용하면 webpack를 통해 합쳐진 스크립트인 dist폴더안의 app.js만 쓰면 되므로 스크립트가 간단해진다.
+   처음에는 dist안에 app.js가 없는데, webpack가 작동하지 않아서 그렇다.
+   package.json의 spript안에 build : webpack라고 써주고
+   터미널에 npm run build를 입력해주면 webpack이 작동하면서
+   main.js numberBaseball.vue를 합쳐 설정한대로 app.js라는 파일을 dist안에 넣어준다.
+   ********* main.js로 이동 *********-->
+</body>
+</html>

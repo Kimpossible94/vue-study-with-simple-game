@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="root">
+      <div v-if="route === 'main'">메인화면</div>
+      <div v-else-if="route === 'sub'">서브화면</div>
+      <button v-if="liked" v-on:click="onClickButton">좋아요 취소</button>
+      <button v-else v-on:click="onClickButton">좋아요</button>
+   </div>
+</body>
+<script>
+   const app = new Vue({
+       el: "#root",
+       data: {
+           liked: false,
+           route: 'main',
+       },
+       methods: {
+           onClickButton(){
+               this.liked ? this.liked = false : this.liked = true;
+           },
+       }
+   })
+</script>
+</html>

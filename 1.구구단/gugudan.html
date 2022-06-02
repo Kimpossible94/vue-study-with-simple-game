@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>구구단</title>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="root">
+      <div>{{first_num}} 곱하기 {{second_num}}은(는)?</div>
+      <form v-on:submit="onSubmitForm">
+<!--태그에 직접 접근하기 위해서는 ref를 사용한다. 그래서 $refs로 접근한다.-->
+<!--너무 남용하면 좋지 않다.-->
+         <input type="number" ref="answer" v-model="value">
+         <button type="submit">입력</button>
+      </form>
+      <div>{{result}}</div>
+   </div>
+</body>
+<script>
+   const app = new Vue({
+       el: "#root",
+       data: {
+           first_num: Math.ceil(Math.random() * 9),
+           second_num: Math.ceil(Math.random() * 9),
+           value: '',
+           result: '',
+       },
+       methods: {
+           onSubmitForm(e){
+               e.preventDefault();
+               if(this.value == this.first_num * this.second_num){
+                  this.result = '정답';
+                  this.first_num = Math.ceil(Math.random() * 9);
+                  this.second_num = Math.ceil(Math.random() * 9);
+               } else {
+                   this.result = "오답";
+               }
+               this.value = '';
+               this.$refs.answer.focus();
+           },
+       },
+   })
+</script>
+</html>
