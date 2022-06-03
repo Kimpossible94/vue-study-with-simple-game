@@ -13,12 +13,12 @@ module.exports = {
     module: {
         rules: [{
             test: /\.vue$/,
-            loader: 'vue-loader',
+            use: 'vue-loader',
         }, {
             //style을 javascript로 바꾸기 위한 vue-style-loader와 css-loader를 설치하기 위해
             //npm i vue-style-loader css-loader -D 를 터미널에 입력해주자.
             test: /\.css$/,
-            loader: [
+            use: [
                 'vue-style-loader',
                 'css-loader',
             ]
@@ -32,5 +32,13 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.join(__dirname, 'dist'),
-    }
+    },
+    devServer: {
+        devMiddleware: {
+            publicPath: '/dist',
+        },
+        static: {
+            directory: path.join(__dirname),
+        },
+    },
 }
