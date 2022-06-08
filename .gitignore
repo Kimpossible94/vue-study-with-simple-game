@@ -1,2 +1,4 @@
+# node_modules와 main.js는 나중에는 용량이 무거워질 수 있기 때문에 .gitignore에 등록한다.
+# 로컬에서 npm i로 만들면 됨.
 node_modules
 dist

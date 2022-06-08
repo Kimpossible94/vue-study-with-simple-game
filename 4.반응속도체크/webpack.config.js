@@ -33,6 +33,8 @@ module.exports = {
         filename: '[name].js',
         path: path.join(__dirname, 'dist'),
     },
+    // webpack-dev-server는 dist 폴더를 생성해서 output을 파일로 만들어서 저장하는 것이 아니라,
+    // 컴퓨터의 메모리에 저장해서 실행한다. (원래는 안생기는데 지금 폴더에 있는건 이 전에 npm run을 했어서 기존에 생긴 파일이다.)
     devServer: {
         devMiddleware: {
             publicPath: '/dist',

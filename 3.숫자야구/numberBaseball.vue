@@ -11,7 +11,9 @@
     </form>
     <div>시도 : {{tries.length}}</div>
     <ul>
-      <li v-for="t in tries">
+      <!-- v-for을 사용할 때는 v-for의 key도 써줘야한다. key는 여기서 여러개 생길 li태그를 구별하는 key
+           key가 있어야 렌더링할 때 효율적으로 할 수 있다. -->
+      <li v-for="t in tries" v-bind:key="t.try">
         <div>{{t.try}}</div>
         <div>{{t.result}}</div>
       </li>
