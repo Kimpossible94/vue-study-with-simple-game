@@ -84,7 +84,7 @@ export default {
 </script>
 
 <!--style은 vue-loader만으로는 읽지 못하므로 다른 loader를 추가해줘야한다.-->
-<style scoped>
+<style>
 /* 하나의 컴포넌트안에서만 사용하기 위해 scoped 옵션을 붙여줄 수 있다.
     scoped를 붙여주고 렌더링된 화면을 크롬의 개발자도구로 보면 style 태그의
     속성들에 data-**** 이런식으로 임의의 값이 들어가 있는 것을 확인할 수 있다.

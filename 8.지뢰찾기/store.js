@@ -82,6 +82,7 @@ export const store = createStore({
             state.timer = 0;
             state.halted = false;
             state.openedCount = 0;
+            state.result = '';
         },
         [OPEN_CELL](state, {row,cell}) {
             // 비어있는 칸을 한 번에 열기위해 재귀함수를 사용할 것인데,
@@ -103,9 +104,11 @@ export const store = createStore({
             }
 
             function checkEndGame(){
+                console.log(state.data.row * state.data.cell - state.data.mine);
+                console.log(state.openedCount + openedCount);
                 if(state.data.row * state.data.cell - state.data.mine === state.openedCount + openedCount){
-                    this.halted = true;
-                    this.result = `${state.timer}초만에 승리하였습니다.`;
+                    state.halted = true;
+                    state.result = `${state.timer}초만에 승리하였습니다.`;
                 }
                 state.openedCount += openedCount;
             }
@@ -162,6 +165,7 @@ export const store = createStore({
                     if(state.tableData[row][cell] === CODE.NORMAL) openedCount++;
                     state.tableData[row][cell] = counted.length;
                 } else {
+                    if(state.tableData[row][cell] === CODE.NORMAL) openedCount++;
                     state.tableData[row][cell] = counted.length;
                 }
             }
